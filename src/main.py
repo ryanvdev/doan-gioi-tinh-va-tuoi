@@ -116,7 +116,7 @@ def predict(frame):
 
 @app.route('/', methods=['GET'])
 def index_router():
-    return {"foo": "bar"}, 200, {
+    return "Running...", 200, {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "*",
         "Access-Control-Allow-Methods": "*"
@@ -198,6 +198,8 @@ def production(port):
 if __name__ == "__main__":
     FLASK_ENV = os.environ.get('FLASK_ENV') or 'development'
     PORT = os.environ.get('PORT') or 80
+
+    print(f'Running with {FLASK_ENV}. http://127.0.0.1:{PORT}')
 
     if(FLASK_ENV == 'development'):
         development(PORT)
